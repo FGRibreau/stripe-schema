@@ -1,5 +1,7 @@
 # [Stripe](http://stripe.com/) Schema
 
+> For learning and inspiration, enjoy :+1:
+
 * [accounts](#accounts)
 * [accounts_metadata](#accounts_metadata)
 * [external_account_bank_accounts](#external_account_bank_accounts)
