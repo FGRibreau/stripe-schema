@@ -1,0 +1,4889 @@
+[
+  {
+    "name": "accounts",
+    "comment": "This is an object that represents a Stripe account.",
+    "section": "connect",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "business_name",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "organization",
+        "visibility": "default"
+      },
+      {
+        "name": "business_url",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "url",
+        "visibility": "default"
+      },
+      {
+        "name": "country",
+        "type": "varchar",
+        "comment": "The account's country.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "debit_negative_balances",
+        "type": "boolean",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "default_currency",
+        "type": "varchar",
+        "comment": "Three-letter ISO currency code representing the default currency for the account. This must be a currency that [Stripe supports in the account's country](https://stripe.com/docs/payouts).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "details_submitted",
+        "type": "boolean",
+        "comment": "Whether account details have been submitted. Standard accounts cannot receive payouts before this is true.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "display_name",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "email",
+        "type": "varchar",
+        "comment": "The primary user's email address.",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "payout_statement_descriptor",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "payouts_enabled",
+        "type": "boolean",
+        "comment": "Whether Stripe can send payouts to this account.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "charges_enabled",
+        "type": "boolean",
+        "comment": "Whether the account can create live charges.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "product_description",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "statement_descriptor",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "support_email",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "support_phone",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "phone_number",
+        "visibility": "default"
+      },
+      {
+        "name": "timezone",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "The type of the Stripe account. Can be `express` or `custom`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "decline_charge_on_cvc_failure",
+        "type": "boolean",
+        "comment": "Whether Stripe automatically declines charges with an incorrect CVC. This setting only applies when a CVC is provided and it fails bank verification.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "decline_charge_on_avs_failure",
+        "type": "boolean",
+        "comment": "Whether Stripe automatically declines charges with an incorrect ZIP or postal code. This setting only applies when a ZIP or postal code is provided and they fail bank verification.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_business_name",
+        "type": "varchar",
+        "comment": "The company's legal name.",
+        "primary_key": false,
+        "pii": "organization",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_business_name_kana",
+        "type": "varchar",
+        "comment": "The Kana variation of the company's legal name (Japan only).",
+        "primary_key": false,
+        "pii": "organization",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_business_name_kanji",
+        "type": "varchar",
+        "comment": "The Kanji variation of the company's legal name (Japan only).",
+        "primary_key": false,
+        "pii": "organization",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_business_tax_id_provided",
+        "type": "boolean",
+        "comment": "Whether the business ID number of the legal entity was provided.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_business_vat_id_provided",
+        "type": "boolean",
+        "comment": "Whether the business VAT number of the legal entity was provided.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_first_name",
+        "type": "varchar",
+        "comment": "The first name of the individual responsible for the account.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_first_name_kana",
+        "type": "varchar",
+        "comment": "The Kana variation of the first name of the individual responsible for the account (Japan only).",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_first_name_kanji",
+        "type": "varchar",
+        "comment": "The Kanji variation of the first name of the individual responsible for the account (Japan only).",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_gender",
+        "type": "varchar",
+        "comment": "The gender of the individual responsible for the account (International regulations require either \"male\" or \"female\").",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_last_name",
+        "type": "varchar",
+        "comment": "The last name of the individual responsible for the account.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_last_name_kana",
+        "type": "varchar",
+        "comment": "The Kana varation of the last name of the individual responsible for the account (Japan only).",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_last_name_kanji",
+        "type": "varchar",
+        "comment": "The Kanji varation of the last name of the individual responsible for the account (Japan only).",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_maiden_name",
+        "type": "varchar",
+        "comment": "The maiden name of the individual responsible for the account.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_id_number_provided",
+        "type": "boolean",
+        "comment": "Whether the personal ID number of the individual responsible for the account was provided.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_phone_number",
+        "type": "varchar",
+        "comment": "The company's phone number, used for verification.",
+        "primary_key": false,
+        "pii": "phone_number",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_ssn_last_4_provided",
+        "type": "boolean",
+        "comment": "Whether the last 4 ssn digits of the individual responsible for the account have been provided.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_tax_id_registrar",
+        "type": "varchar",
+        "comment": "The jurisdiction in which the `business_tax_id` is registered (Germany-based companies only).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_type",
+        "type": "varchar",
+        "comment": "Either \"individual\" or \"company\", for what kind of legal entity the account owner is for.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kana_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kana_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kana_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kana_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kana_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kana_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kanji_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kanji_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kanji_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kanji_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kanji_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_address_kanji_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_dob_day",
+        "type": "bigint",
+        "comment": "The day of birth, between 1 and 31.",
+        "primary_key": false,
+        "pii": "dob",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_dob_month",
+        "type": "bigint",
+        "comment": "The month of birth, between 1 and 12.",
+        "primary_key": false,
+        "pii": "dob",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_dob_year",
+        "type": "bigint",
+        "comment": "The four-digit year of birth.",
+        "primary_key": false,
+        "pii": "dob",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kana_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kana_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kana_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kana_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kana_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kana_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kanji_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kanji_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kanji_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kanji_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kanji_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_personal_address_kanji_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_verification_details",
+        "type": "varchar",
+        "comment": "A user-displayable string describing the verification state for the person. For example, this may say \"Provided identity information could not be verified\".",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_verification_details_code",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_verification_document_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "legal_entity_verification_status",
+        "type": "varchar",
+        "comment": "The state of verification for the person. Possible values are `unverified`, `pending`, or `verified`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "payout_schedule_delay_days",
+        "type": "bigint",
+        "comment": "The number of days charges for the account will be held before being paid out.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "payout_schedule_interval",
+        "type": "varchar",
+        "comment": "How frequently funds will be paid out. One of `manual` (payouts only created via API call), `daily`, `weekly`, or `monthly`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "payout_schedule_monthly_anchor",
+        "type": "bigint",
+        "comment": "The day of the month funds will be paid out. Only shown if `interval` is monthly. Payouts scheduled between the 29th and 31st of the month are sent on the last day of shorter months.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "payout_schedule_weekly_anchor",
+        "type": "varchar",
+        "comment": "The day of the week funds will be paid out, of the style 'monday', 'tuesday', etc. Only shown if `interval` is weekly.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tos_acceptance_date",
+        "type": "timestamp",
+        "comment": "The Unix timestamp marking when the Stripe Services Agreement was accepted by the account representative",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tos_acceptance_ip",
+        "type": "varchar",
+        "comment": "The IP address from which the Stripe Services Agreement was accepted by the account representative",
+        "primary_key": false,
+        "pii": "ip_address",
+        "visibility": "default"
+      },
+      {
+        "name": "tos_acceptance_user_agent",
+        "type": "varchar",
+        "comment": "The user agent of the browser from which the Stripe Services Agreement was accepted by the account representative",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "verification_fields_needed",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "verification_due_by",
+        "type": "timestamp",
+        "comment": "By what time the `fields_needed` must be provided. If this date is in the past, the account is already in bad standing, and providing `fields_needed` is necessary to re-enable payouts and prevent other consequences. If this date is in the future, `fields_needed` must be provided to ensure the account remains in good standing.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "verification_disabled_reason",
+        "type": "varchar",
+        "comment": "If the account is disabled, this string describes why the account can’t create charges or receive payouts. Can be `rejected.fraud`, `rejected.terms_of_service`, `rejected.listed`, `rejected.other`, `fields_needed`, `listed`, `under_review`, or `other`.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#account_object",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "accounts_metadata",
+    "comment": "Additional metadata fields associated with accounts.",
+    "section": "connect",
+    "columns": [
+      {
+        "name": "account_id",
+        "type": "varchar",
+        "comment": "The ID of the account that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "accounts",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#account_object",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "external_account_bank_accounts",
+    "comment": "This is an object that represents an external bank account.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "account_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "foreign_key": "accounts",
+        "visibility": "default"
+      },
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "account_holder_name",
+        "type": "varchar",
+        "comment": "The name of the person or business that owns the bank account.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "account_holder_type",
+        "type": "varchar",
+        "comment": "The type of entity that holds the account. This can be either `individual` or `company`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "bank_name",
+        "type": "varchar",
+        "comment": "Name of the bank associated with the routing number (e.g., `WELLS FARGO`).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "country",
+        "type": "varchar",
+        "comment": "Two-letter ISO code representing the country the bank account is located in.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO code for the currency](https://stripe.com/docs/payouts) paid out to the bank account.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "default_for_currency",
+        "type": "boolean",
+        "comment": "Whether this bank account is the default external account for its currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "fingerprint",
+        "type": "varchar",
+        "comment": "Uniquely identifies this particular bank account. You can use this attribute to check whether two bank accounts are the same.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "last4",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "account_number",
+        "visibility": "default"
+      },
+      {
+        "name": "routing_number",
+        "type": "varchar",
+        "comment": "The routing transit number for the bank account.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "For bank accounts, possible values are `new`, `validated`, `verified`, `verification_failed`, or `errored`. A bank account that hasn't had any activity or validation performed is `new`. If Stripe can determine that the bank account exists, its status will be `validated`. Note that there often isn’t enough information to know (e.g., for smaller credit unions), and the validation is not always run. If customer bank account verification has succeeded, the bank account status will be `verified`. If the verification failed for any reason, such as microdeposit failure, the status will be `verification_failed`. If a transfer sent to this bank account fails, we'll set the status to `errored` and will not continue to send transfers until the bank details are updated.\n\nFor external accounts, possible values are `new` and `errored`. Validations aren't run against external accounts because they're only used for payouts. This means the other statuses don't apply. If a transfer fails, the status is set to `errored` and transfers are stopped until account details are updated.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "external_account_cards",
+    "comment": "This is an object that represents an external account card.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "account_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "foreign_key": "accounts",
+        "visibility": "default"
+      },
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_country",
+        "type": "varchar",
+        "comment": "Billing address country, if provided when creating card.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_line1_check",
+        "type": "varchar",
+        "comment": "If `address_line1` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_zip",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "address_zip_check",
+        "type": "varchar",
+        "comment": "If `address_zip` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "brand",
+        "type": "varchar",
+        "comment": "Card brand. Can be `American Express`, `Diners Club`, `Discover`, `JCB`, `MasterCard`, `UnionPay`, `Visa`, or `Unknown`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "country",
+        "type": "varchar",
+        "comment": "Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you've collected.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO code for currency](https://stripe.com/docs/payouts). Only applicable on accounts (not customers or recipients). The card can be used as a transfer destination for funds in this currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "The customer that this card belongs to. This attribute will not be in the card object if the card belongs to an account or recipient instead.",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "cvc_check",
+        "type": "varchar",
+        "comment": "If a CVC was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "default_for_currency",
+        "type": "boolean",
+        "comment": "Whether this card is the default external account for its currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "dynamic_last4",
+        "type": "varchar",
+        "comment": "(For tokenized numbers only.) The last four digits of the device account number.",
+        "primary_key": false,
+        "pii": "account_number",
+        "visibility": "default"
+      },
+      {
+        "name": "exp_month",
+        "type": "bigint",
+        "comment": "Two-digit number representing the card's expiration month.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "exp_year",
+        "type": "bigint",
+        "comment": "Four-digit number representing the card's expiration year.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "fingerprint",
+        "type": "varchar",
+        "comment": "Uniquely identifies this particular card number. You can use this attribute to check whether two customers who've signed up with you are using the same card number, for example.",
+        "primary_key": false,
+        "pii": "id_number",
+        "visibility": "default"
+      },
+      {
+        "name": "funding",
+        "type": "varchar",
+        "comment": "Card funding type. Can be `credit`, `debit`, `prepaid`, or `unknown`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "last4",
+        "type": "varchar",
+        "comment": "The last four digits of the card.",
+        "primary_key": false,
+        "pii": "account_number",
+        "visibility": "default"
+      },
+      {
+        "name": "name",
+        "type": "varchar",
+        "comment": "Cardholder name.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "recipient_id",
+        "type": "varchar",
+        "comment": "The recipient that this card belongs to. This attribute will not be in the card object if the card belongs to a customer or account instead.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tokenization_method",
+        "type": "varchar",
+        "comment": "If the card number is tokenized, this is the method that was used. Can be `apple_pay` or `google_pay`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "iin",
+        "type": "varchar",
+        "comment": "The Issuer Identification Number or Bank Identification Number (BIN) of the card being used to make the payment. It is the first six digits of the card number.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "application_fees",
+    "comment": "When you collect a transaction fee on top of a charge made for your user (using Stripe Connect), an application fee object is created in your account.",
+    "section": "connect-fees",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "account_id",
+        "type": "varchar",
+        "comment": "ID of the Stripe account this fee was taken from.",
+        "primary_key": false,
+        "foreign_key": "accounts",
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount earned, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "amount_refunded",
+        "type": "bigint",
+        "comment": "Amount in cents refunded (can be less than the amount attribute on the fee if a partial refund was issued)",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "application_id",
+        "type": "varchar",
+        "comment": "ID of the Connect application that earned the fee.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "Balance transaction that describes the impact of this collected application fee on your account balance (not including refunds).",
+        "primary_key": false,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      },
+      {
+        "name": "charge_id",
+        "type": "varchar",
+        "comment": "ID of the charge that the application fee was taken from.",
+        "primary_key": false,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "originating_transaction_id",
+        "type": "varchar",
+        "comment": "ID of the corresponding charge on the platform account, if this fee was the result of a charge using the `destination` parameter.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "refunded",
+        "type": "boolean",
+        "comment": "Whether the fee has been fully refunded. If the fee is only partially refunded, this attribute will still be false.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#application_fees",
+    "visibility": "default"
+  },
+  {
+    "name": "balance_transactions",
+    "comment": "This is an object representing transactions that contributed to your Stripe account balance.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Gross amount of the transaction, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "available_on",
+        "type": "timestamp",
+        "comment": "The date the transaction's net funds will become available in the Stripe balance.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "fee",
+        "type": "bigint",
+        "comment": "Fees (in cents) paid for this transaction.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "net",
+        "type": "bigint",
+        "comment": "Net amount of the transaction, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "If the transaction's net funds are available in the Stripe balance yet. Either `available` or `pending`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "Transaction type: `adjustment`, `advance`, `advance_funding`, `application_fee`, `application_fee_refund`, `charge`, `connect_collection_transfer`, `issuing_authorization_hold`, `issuing_authorization_release`, `issuing_transaction`, `payment`, `payment_failure_refund`, `payment_refund`, `payout`, `payout_cancel`, `payout_failure`, `refund`, `refund_failure`, `reserve_transaction`, `reserved_funds`, `stripe_fee`, `stripe_fx_fee`, `tax_fee`, `topup`, `topup_reversal`, `transfer`, `transfer_cancel`, `transfer_failure`, or `transfer_refund`. [Learn more](https://stripe.com/docs/reports/balance-transaction-types) about balance transaction types and what they represent.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "source_id",
+        "type": "varchar",
+        "comment": "The Stripe object to which this transaction is related.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "automatic_transfer_id",
+        "type": "varchar",
+        "comment": "ID of the automatically created transfer associated with this balance transaction (only set if your account is on an [automatic payout schedule](https://stripe.com/docs/payouts#payout-schedule)).",
+        "primary_key": false,
+        "foreign_key": "transfers",
+        "visibility": "default"
+      },
+      {
+        "name": "reporting_category",
+        "type": "varchar",
+        "comment": "(Beta, subject to change) A new categorization of balance transactions, meant to improve on the current `type` field. [Learn more](https://stripe.com/docs/reports/reporting-categories). Please let us know what would be most helpful using the **Feedback** link at the bottom of this page.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#balance",
+    "data_subjects": "END_USER,MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "balance_transaction_fee_details",
+    "comment": "Detailed breakdown of fees (in cents) paid for this transaction.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      },
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount of the fee, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "application",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "Type of the fee, one of: `application_fee`, `stripe_fee` or `tax`.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#balance",
+    "data_subjects": "END_USER,MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "charges",
+    "comment": "To charge a credit or a debit card, you create a charge object.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "A positive integer representing how much to charge in the [smallest currency unit](/docs/currencies#zero-decimal) (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency). The minimum amount is $0.50 US or [equivalent in charge currency](/docs/currencies#minimum-and-maximum-charge-amounts). The amount value supports up to eight digits (e.g., a value of 99999999 for a USD charge of $999,999.99).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "amount_refunded",
+        "type": "bigint",
+        "comment": "Amount in cents refunded (can be less than the amount attribute on the charge if a partial refund was issued).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "application_fee_id",
+        "type": "varchar",
+        "comment": "The application fee (if any) for the charge. [See the Connect documentation](/docs/connect/direct-charges#collecting-fees) for details.",
+        "primary_key": false,
+        "foreign_key": "application_fees",
+        "visibility": "default"
+      },
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "ID of the balance transaction that describes the impact of this charge on your account balance (not including refunds or disputes).",
+        "primary_key": false,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      },
+      {
+        "name": "captured",
+        "type": "boolean",
+        "comment": "If the charge was created without capturing, this Boolean represents whether it is still uncaptured or has since been captured.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "ID of the customer this charge is for if one exists.",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "destination_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "accounts",
+        "visibility": "default"
+      },
+      {
+        "name": "dispute_id",
+        "type": "varchar",
+        "comment": "Details about the dispute if the charge has been disputed.",
+        "primary_key": false,
+        "foreign_key": "disputes",
+        "visibility": "default"
+      },
+      {
+        "name": "failure_code",
+        "type": "varchar",
+        "comment": "Error code explaining reason for charge failure if available (see [the errors section](/docs/api#errors) for a list of codes).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "failure_message",
+        "type": "varchar",
+        "comment": "Message to user further explaining reason for charge failure if available.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "invoice_id",
+        "type": "varchar",
+        "comment": "ID of the invoice this charge is for if one exists.",
+        "primary_key": false,
+        "foreign_key": "invoices",
+        "visibility": "default"
+      },
+      {
+        "name": "order_id",
+        "type": "varchar",
+        "comment": "ID of the order this charge is for if one exists.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "paid",
+        "type": "boolean",
+        "comment": "`true` if the charge succeeded, or was successfully authorized for later capture.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "receipt_email",
+        "type": "varchar",
+        "comment": "This is the email address that the receipt for this charge was sent to.",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "receipt_number",
+        "type": "varchar",
+        "comment": "This is the transaction number that appears on email receipts sent for this charge. This attribute will be `null` until a receipt has been sent.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "refunded",
+        "type": "boolean",
+        "comment": "Whether the charge has been fully refunded. If the charge is only partially refunded, this attribute will still be false.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "statement_descriptor",
+        "type": "varchar",
+        "comment": "For card charges, use `statement_descriptor_suffix` instead. Otherwise, you can use this value as the complete description of a charge on your customers’ statements. Must contain at least one letter, maximum 22 characters.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "The status of the payment is either `succeeded`, `pending`, or `failed`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "source_transfer_id",
+        "type": "varchar",
+        "comment": "The transfer ID which created this charge. Only present if the charge came from another Stripe account. [See the Connect documentation](/docs/connect/destination-charges) for details.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "transfer_id",
+        "type": "varchar",
+        "comment": "ID of the transfer to the `destination` account (only applicable if the charge was created using the `destination` parameter).",
+        "primary_key": false,
+        "foreign_key": "transfers",
+        "visibility": "default"
+      },
+      {
+        "name": "transfer_group",
+        "type": "varchar",
+        "comment": "A string that identifies this transaction as part of a group. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "application_id",
+        "type": "varchar",
+        "comment": "ID of the Connect application that created the charge.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "source_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "sources",
+        "visibility": "default"
+      },
+      {
+        "name": "card_id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_country",
+        "type": "varchar",
+        "comment": "Billing address country, if provided when creating card.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_line1_check",
+        "type": "varchar",
+        "comment": "If `address_line1` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_zip",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_address_zip_check",
+        "type": "varchar",
+        "comment": "If `address_zip` was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "card_brand",
+        "type": "varchar",
+        "comment": "Card brand. Can be `American Express`, `Diners Club`, `Discover`, `JCB`, `MasterCard`, `UnionPay`, `Visa`, or `Unknown`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_country",
+        "type": "varchar",
+        "comment": "Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you've collected.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO code for currency](https://stripe.com/docs/payouts). Only applicable on accounts (not customers or recipients). The card can be used as a transfer destination for funds in this currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_customer_id",
+        "type": "varchar",
+        "comment": "The customer that this card belongs to. This attribute will not be in the card object if the card belongs to an account or recipient instead.",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "card_cvc_check",
+        "type": "varchar",
+        "comment": "If a CVC was provided, results of the check: `pass`, `fail`, `unavailable`, or `unchecked`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_dynamic_last4",
+        "type": "varchar",
+        "comment": "(For tokenized numbers only.) The last four digits of the device account number.",
+        "primary_key": false,
+        "pii": "account_number",
+        "visibility": "default"
+      },
+      {
+        "name": "card_exp_month",
+        "type": "bigint",
+        "comment": "Two-digit number representing the card's expiration month.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_exp_year",
+        "type": "bigint",
+        "comment": "Four-digit number representing the card's expiration year.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_fingerprint",
+        "type": "varchar",
+        "comment": "Uniquely identifies this particular card number. You can use this attribute to check whether two customers who've signed up with you are using the same card number, for example.",
+        "primary_key": false,
+        "pii": "id_number",
+        "visibility": "default"
+      },
+      {
+        "name": "card_funding",
+        "type": "varchar",
+        "comment": "Card funding type. Can be `credit`, `debit`, `prepaid`, or `unknown`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_last4",
+        "type": "varchar",
+        "comment": "The last four digits of the card.",
+        "primary_key": false,
+        "pii": "account_number",
+        "visibility": "default"
+      },
+      {
+        "name": "card_name",
+        "type": "varchar",
+        "comment": "Cardholder name.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "card_recipient_id",
+        "type": "varchar",
+        "comment": "The recipient that this card belongs to. This attribute will not be in the card object if the card belongs to a customer or account instead.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_tokenization_method",
+        "type": "varchar",
+        "comment": "If the card number is tokenized, this is the method that was used. Can be `apple_pay` or `google_pay`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_iin",
+        "type": "varchar",
+        "comment": "The Issuer Identification Number or Bank Identification Number (BIN) of the card being used to make the payment. It is the first six digits of the card number.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "card_default_for_currency",
+        "type": "boolean",
+        "comment": "Only applicable on payout external account card belonging to merchant (not as payment source customer card in charge).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_network_status",
+        "type": "varchar",
+        "comment": "Possible values are `approved_by_network`, `declined_by_network`, `not_sent_to_network`, and `reversed_after_approval`. The value `reversed_after_approval` indicates the payment was [blocked by Stripe](/docs/declines#blocked-payments) after bank authorization, and may temporarily appear as \"pending\" on a cardholder's statement.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_reason",
+        "type": "varchar",
+        "comment": "An enumerated value providing a more detailed explanation of the outcome's `type`. Charges blocked by Radar's default block rule have the value `highest_risk_level`. Charges placed in review by Radar's default review rule have the value `elevated_risk_level`. Charges authorized, blocked, or placed in review by custom rules have the value `rule`. See [understanding declines](/docs/declines) for more details.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_rule_id",
+        "type": "varchar",
+        "comment": "The ID of the Radar rule that matched the payment, if applicable.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_type",
+        "type": "varchar",
+        "comment": "Possible values are `authorized`, `manual_review`, `issuer_declined`, `blocked`, and `invalid`. See [understanding declines](/docs/declines) and [Radar reviews](radar/review) for details.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_seller_message",
+        "type": "varchar",
+        "comment": "A human-readable description of the outcome type and reason, designed for you (the recipient of the payment), not your customer.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_risk_level",
+        "type": "varchar",
+        "comment": "Stripe's evaluation of the riskiness of the payment. Possible values for evaluated payments are `normal`, `elevated`, `highest`. For non-card payments, and card-based payments predating the public assignment of risk levels, this field will have the value `not_assessed`. In the event of an error in the evaluation, this field will have the value `unknown`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "outcome_risk_score",
+        "type": "bigint",
+        "comment": "Stripe's evaluation of the riskiness of the payment. Possible values for evaluated payments are between 0 and 100. For non-card payments, card-based payments predating the public assignment of risk scores, or in the event of an error during evaluation, this field will not be present. This field is only available with Radar for Fraud Teams.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#charge_object",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "charges_metadata",
+    "comment": "Additional metadata fields associated with charges.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "charge_id",
+        "type": "varchar",
+        "comment": "The ID of the charge that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#charge_object",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "coupons",
+    "comment": "A coupon contains information about a percent-off or amount-off discount you might want to apply to a customer. Coupons only apply to invoices; they do not apply to one-off charges.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount_off",
+        "type": "bigint",
+        "comment": "Amount (in the `currency` specified) that will be taken off the subtotal of any invoices for this customer.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "If `amount_off` has been set, the three-letter [ISO code for the currency](https://stripe.com/docs/currencies) of the amount to take off.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "duration",
+        "type": "varchar",
+        "comment": "One of `forever`, `once`, and `repeating`. Describes how long a customer who applies this coupon will get the discount.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "duration_in_months",
+        "type": "bigint",
+        "comment": "If `duration` is `repeating`, the number of months the coupon applies. Null if coupon `duration` is `forever` or `once`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "max_redemptions",
+        "type": "bigint",
+        "comment": "Maximum number of times this coupon can be redeemed, in total, across all customers, before it is no longer valid.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "percent_off",
+        "type": "double",
+        "comment": "Percent that will be taken off the subtotal of any invoices for this customer for the duration of the coupon. For example, a coupon with percent_off of 50 will make a $100 invoice $50 instead.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "redeem_by",
+        "type": "timestamp",
+        "comment": "Date after which the coupon can no longer be redeemed.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "times_redeemed",
+        "type": "bigint",
+        "comment": "Number of times this coupon has been applied to a customer.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "valid",
+        "type": "boolean",
+        "comment": "Taking account of the above properties, whether this coupon can still be applied to a customer.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#coupons",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "coupons_metadata",
+    "comment": "Additional metadata fields associated with coupons.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "coupon_id",
+        "type": "varchar",
+        "comment": "The ID of the coupon that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "coupons",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#coupons",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "credit_notes",
+    "comment": "Credit notes are documents that decrease the amount owed on invoices.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "The integer amount in **cents** representing the total amount of the credit note, including tax.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "ID of the customer.",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "invoice_id",
+        "type": "varchar",
+        "comment": "ID of the invoice.",
+        "primary_key": false,
+        "foreign_key": "invoices",
+        "visibility": "default"
+      },
+      {
+        "name": "memo",
+        "type": "varchar",
+        "comment": "Customer-facing text that appears on the credit note PDF.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "number",
+        "type": "varchar",
+        "comment": "A unique number that identifies this particular credit note and appears on the PDF of the credit note and its associated invoice.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "reason",
+        "type": "varchar",
+        "comment": "Reason for issuing this credit note, one of `duplicate`, `fraudulent`, `order_change`, or `product_unsatisfactory`",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "refund_id",
+        "type": "varchar",
+        "comment": "Refund related to this credit note.",
+        "primary_key": false,
+        "foreign_key": "refunds",
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "Status of this credit note, one of `issued` or `void`. Learn more about [voiding credit notes](/docs/billing/invoices/credit-notes#voiding).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "Type of this credit note, one of `post_payment` or `pre_payment`. A `pre_payment` credit note means it was issued when the invoice was open. A `post_payment` credit note means it was issued when the invoice was paid.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/credit_notes",
+    "data_subjects": "END_CUSTOMER,MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "credit_notes_metadata",
+    "comment": "Additional metadata fields associated with credit notes.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "credit_note_id",
+        "type": "varchar",
+        "comment": "The ID of the credit_note that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "credit_notes",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/credit_notes",
+    "data_subjects": "END_CUSTOMER,MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "credit_note_line_items",
+    "comment": "Credit note line items",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "credit_note_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "credit_notes",
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "The integer amount in **cents** representing the gross amount being credited for this line item, excluding (exclusive) tax and discounts.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount",
+        "type": "bigint",
+        "comment": "The integer amount in **cents** representing the discount being credited for this line item.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "Description of the item being credited.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "quantity",
+        "type": "bigint",
+        "comment": "The number of units of product being credited.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "unit_amount",
+        "type": "bigint",
+        "comment": "The cost of each unit of product being credited.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/credit_notes",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "credit_note_line_item_tax_amounts",
+    "comment": "Tax amounts for credit note line items",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "credit_note_line_item_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "foreign_key": "credit_note_line_items",
+        "visibility": "default"
+      },
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "The amount, in cents, of the tax.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "inclusive",
+        "type": "boolean",
+        "comment": "Whether this tax amount is inclusive or exclusive.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tax_rate_id",
+        "type": "varchar",
+        "comment": "The tax rate that was applied to get this tax amount.",
+        "primary_key": false,
+        "foreign_key": "tax_rates",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/credit_notes/object#credit_note_object-tax_amounts",
+    "visibility": "default"
+  },
+  {
+    "name": "customers",
+    "comment": "Customer objects allow you to perform recurring charges and track multiple charges that are associated with the same customer.",
+    "section": "customers",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "account_balance",
+        "type": "bigint",
+        "comment": "This field has been renamed to `balance` and will be removed in a future API version.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "business_vat_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "pii": "id_number",
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) the customer can be charged in for recurring billing purposes.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "delinquent",
+        "type": "boolean",
+        "comment": "When the customer's latest invoice is billed by charging automatically, delinquent is true if the invoice's latest charge is failed. When the customer's latest invoice is billed by sending an invoice, delinquent is true if the invoice is not paid by its due date.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "email",
+        "type": "varchar",
+        "comment": "The customer's email address.",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "default_source_id",
+        "type": "varchar",
+        "comment": "ID of the default payment source for the customer.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "deleted",
+        "type": "boolean",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_name",
+        "type": "varchar",
+        "comment": "Customer name.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_phone",
+        "type": "varchar",
+        "comment": "Customer phone (including extension).",
+        "primary_key": false,
+        "pii": "phone_number",
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_address_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_address_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "shipping_address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_coupon_id",
+        "type": "varchar",
+        "comment": "Hash describing the coupon applied to create this discount.",
+        "primary_key": false,
+        "foreign_key": "coupons",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_customer_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_end",
+        "type": "timestamp",
+        "comment": "If the coupon has a duration of `repeating`, the date that this discount will end. If the coupon has a duration of `once` or `forever`, this attribute will be null.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_start",
+        "type": "timestamp",
+        "comment": "Date that the coupon was applied.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_subscription",
+        "type": "varchar",
+        "comment": "The subscription that this coupon is applied to, if it is applied to a particular subscription.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tax_info_tax_id",
+        "type": "varchar",
+        "comment": "The customer's tax ID number.",
+        "primary_key": false,
+        "pii": "id_number",
+        "visibility": "default"
+      },
+      {
+        "name": "tax_info_type",
+        "type": "varchar",
+        "comment": "The type of ID number.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#customers",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "customers_metadata",
+    "comment": "Additional metadata fields associated with customers.",
+    "section": "customers",
+    "columns": [
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "The ID of the customer that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#customers",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "disputes",
+    "comment": "A dispute occurs when a customer questions your charge with their bank or credit card company.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Disputed amount. Usually the amount of the charge, but can differ (usually because of currency fluctuation or because only part of the order is disputed).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "charge_id",
+        "type": "varchar",
+        "comment": "ID of the charge that was disputed.",
+        "primary_key": false,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "is_charge_refundable",
+        "type": "boolean",
+        "comment": "If true, it is still possible to refund the disputed payment. Once the payment has been fully refunded, no further funds will be withdrawn from your Stripe account as a result of this dispute.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "reason",
+        "type": "varchar",
+        "comment": "Reason given by cardholder for dispute. Possible values are `bank_cannot_process`, `check_returned`, `credit_not_processed`, `customer_initiated`, `debit_not_authorized`, `duplicate`, `fraudulent`, `general`, `incorrect_account_details`, `insufficient_funds`, `product_not_received`, `product_unacceptable`, `subscription_canceled`, or `unrecognized`. Read more about [dispute reasons](/docs/disputes/categories).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "Current status of dispute. Possible values are `warning_needs_response`, `warning_under_review`, `warning_closed`, `needs_response`, `under_review`, `charge_refunded`, `won`, or `lost`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_access_activity_log",
+        "type": "varchar",
+        "comment": "Any server or activity logs showing proof that the customer accessed or downloaded the purchased digital product. This information should include IP addresses, corresponding timestamps, and any detailed recorded activity.",
+        "primary_key": false,
+        "pii": "ip_address",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_billing_address",
+        "type": "varchar",
+        "comment": "The billing address provided by the customer.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_cancellation_policy_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Your subscription cancellation policy, as shown to the customer.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_cancellation_policy_disclosure",
+        "type": "varchar",
+        "comment": "An explanation of how and when the customer was shown your refund policy prior to purchase.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_cancellation_rebuttal",
+        "type": "varchar",
+        "comment": "A justification for why the customer's subscription was not canceled.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_customer_communication_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Any communication with the customer that you feel is relevant to your case. Examples include emails proving that the customer received the product or service, or demonstrating their use of or satisfaction with the product or service.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_customer_email_address",
+        "type": "varchar",
+        "comment": "The email address of the customer.",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_customer_name",
+        "type": "varchar",
+        "comment": "The name of the customer.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_customer_purchase_ip",
+        "type": "varchar",
+        "comment": "The IP address that the customer used when making the purchase.",
+        "primary_key": false,
+        "pii": "ip_address",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_customer_signature_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) A relevant document or contract showing the customer's signature.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_duplicate_charge_documentation_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Documentation for the prior charge that can uniquely identify the charge, such as a receipt, shipping label, work order, etc. This document should be paired with a similar document from the disputed payment that proves the two payments are separate.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_duplicate_charge_id",
+        "type": "varchar",
+        "comment": "The Stripe ID for the prior charge which appears to be a duplicate of the disputed charge.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_product_description",
+        "type": "varchar",
+        "comment": "A description of the product or service that was sold.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_receipt_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Any receipt or message sent to the customer notifying them of the charge.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_refund_policy_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Your refund policy, as shown to the customer.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_refund_policy_disclosure",
+        "type": "varchar",
+        "comment": "Documentation demonstrating that the customer was shown your refund policy prior to purchase.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_refund_refusal_explanation",
+        "type": "varchar",
+        "comment": "A justification for why the customer is not entitled to a refund.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_service_date",
+        "type": "varchar",
+        "comment": "The date on which the customer received or began receiving the purchased service, in a clear human-readable format.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_service_documentation_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Documentation showing proof that a service was provided to the customer. This could include a copy of a signed contract, work order, or other form of written agreement.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_shipping_address",
+        "type": "varchar",
+        "comment": "The address to which a physical product was shipped. You should try to include as complete address information as possible.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_shipping_carrier",
+        "type": "varchar",
+        "comment": "The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc. If multiple carriers were used for this purchase, please separate them with commas.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_shipping_date",
+        "type": "varchar",
+        "comment": "The date on which a physical product began its route to the shipping address, in a clear human-readable format.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_shipping_documentation_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Documentation showing proof that a product was shipped to the customer at the same address the customer provided to you. This could include a copy of the shipment receipt, shipping label, etc. It should show the customer's full shipping address, if possible.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_shipping_tracking_number",
+        "type": "varchar",
+        "comment": "The tracking number for a physical product, obtained from the delivery service. If multiple tracking numbers were generated for this purchase, please separate them with commas.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_uncategorized_file_id",
+        "type": "varchar",
+        "comment": "(ID of a [file upload](https://stripe.com/docs/guides/file-upload)) Any additional evidence or statements.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_uncategorized_text",
+        "type": "varchar",
+        "comment": "Any additional evidence or statements.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_details_due_by",
+        "type": "timestamp",
+        "comment": "Date by which evidence must be submitted in order to successfully challenge dispute. Will be null if the customer's bank or credit card company doesn't allow a response for this particular dispute.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_details_has_evidence",
+        "type": "boolean",
+        "comment": "Whether evidence has been staged for this dispute.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_details_past_due",
+        "type": "boolean",
+        "comment": "Whether the last evidence submission was submitted past the due date. Defaults to `false` if no evidence submissions have occurred. If `true`, then delivery of the latest evidence is *not* guaranteed.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "evidence_details_submission_count",
+        "type": "bigint",
+        "comment": "The number of times evidence has been submitted. Typically, you may only submit evidence once.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#disputes",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "disputes_metadata",
+    "comment": "Additional metadata fields associated with disputes.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "dispute_id",
+        "type": "varchar",
+        "comment": "The ID of the dispute that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "disputes",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#disputes",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "early_fraud_warnings",
+    "comment": "An early fraud warning indicates that the card issuer has notified us that a charge may be fraudulent.",
+    "section": "radar",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "charge_id",
+        "type": "varchar",
+        "comment": "ID of the charge this early fraud warning is for, optionally expanded.",
+        "primary_key": false,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "fraud_type",
+        "type": "varchar",
+        "comment": "The type of fraud labelled by the issuer. One of `card_never_received`, `fraudulent_card_application`, `made_with_counterfeit_card`, `made_with_lost_card`, `made_with_stolen_card`, `misc`, `unauthorized_use_of_card`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "actionable",
+        "type": "boolean",
+        "comment": "An EFW is actionable if it has not received a dispute and has not been fully refunded. You may wish to proactively refund a charge that receives an EFW, in order to avoid receiving a dispute later.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/radar/early_fraud_warnings",
+    "data_subjects": "END_CUSTOMER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "application_fee_refunds",
+    "comment": "Application Fee Refund objects allow you to refund an application fee that has previously been created but not yet refunded. Funds will be refunded to the Stripe account that the fee was originally collected from.",
+    "section": "connect-fees",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "fee_id",
+        "type": "varchar",
+        "comment": "ID of the application fee that was refunded.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "Balance transaction that describes the impact on your account balance.",
+        "primary_key": false,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#fee_refunds",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "application_fee_refunds_metadata",
+    "comment": "Additional metadata fields associated with application fee refunds.",
+    "section": "connect-fees",
+    "columns": [
+      {
+        "name": "application_fee_refund_id",
+        "type": "varchar",
+        "comment": "The ID of the application_fee_refund that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "application_fee_refunds",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#fee_refunds",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "invoices",
+    "comment": "Invoices are statements of what a customer owes for a particular billing period, including subscriptions, invoice items, and any automatic proration adjustments if necessary.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount_due",
+        "type": "bigint",
+        "comment": "Final amount due at this time for this invoice. If the invoice's total is smaller than the minimum charge amount, for example, or if there is account credit that can be applied to the invoice, the `amount_due` may be 0. If there is a positive `starting_balance` for the invoice (the customer owes money), the `amount_due` will also take that into account. The charge that gets generated for the invoice will be for the amount specified in `amount_due`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "application_fee",
+        "type": "bigint",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "attempt_count",
+        "type": "bigint",
+        "comment": "Number of payment attempts made for this invoice, from the perspective of the payment retry schedule. Any payment attempt counts as the first attempt, and subsequently only automatic retries increment the attempt count. In other words, manual payment attempts after the first attempt do not affect the retry schedule.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "attempted",
+        "type": "boolean",
+        "comment": "Whether an attempt has been made to pay the invoice. An invoice is not attempted until 1 hour after the `invoice.created` webhook, for example, so you might not want to display that invoice as unpaid to your users.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "auto_advance",
+        "type": "boolean",
+        "comment": "Controls whether Stripe will perform [automatic collection](/docs/billing/invoices/workflow/#auto_advance) of the invoice. When `false`, the invoice's state will not automatically advance without an explicit action.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "charge_id",
+        "type": "varchar",
+        "comment": "ID of the latest charge generated for this invoice, if any.",
+        "primary_key": false,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "date",
+        "type": "timestamp",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users. Referenced as 'memo' in the Dashboard.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "ending_balance",
+        "type": "bigint",
+        "comment": "Ending customer balance after the invoice is finalized. Invoices are finalized approximately an hour after successful webhook delivery or when payment collection is attempted for the invoice. If the invoice has not been finalized yet, this will be null.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "next_payment_attempt",
+        "type": "timestamp",
+        "comment": "The time at which payment will next be attempted. This value will be `null` for invoices where `collection_method=send_invoice`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "number",
+        "type": "varchar",
+        "comment": "A unique, identifying string that appears on emails sent to the customer for this invoice. This starts with the customer's unique invoice_prefix if it is specified.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "paid",
+        "type": "boolean",
+        "comment": "Whether payment was successfully collected for this invoice. An invoice can be paid (most commonly) with a charge or with credit from the customer's account balance.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "period_end",
+        "type": "timestamp",
+        "comment": "End of the usage period during which invoice items were added to this invoice.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "period_start",
+        "type": "timestamp",
+        "comment": "Start of the usage period during which invoice items were added to this invoice.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "receipt_number",
+        "type": "varchar",
+        "comment": "This is the transaction number that appears on email receipts sent for this invoice.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "starting_balance",
+        "type": "bigint",
+        "comment": "Starting customer balance before the invoice is finalized. If the invoice has not been finalized yet, this will be the current customer balance.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "statement_descriptor",
+        "type": "varchar",
+        "comment": "Extra information about an invoice for the customer's credit card statement.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "The status of the invoice, one of `draft`, `open`, `paid`, `uncollectible`, or `void`. [Learn more](/docs/billing/invoices/workflow#workflow-overview)",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "subscription_id",
+        "type": "varchar",
+        "comment": "The subscription that this invoice was prepared for, if any.",
+        "primary_key": false,
+        "foreign_key": "subscriptions",
+        "visibility": "default"
+      },
+      {
+        "name": "subscription_proration_date",
+        "type": "timestamp",
+        "comment": "Only set for upcoming invoices that preview prorations. The time used to calculate prorations.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "subtotal",
+        "type": "bigint",
+        "comment": "Total of all subscriptions, invoice items, and prorations on the invoice before any discount or tax is applied.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tax",
+        "type": "bigint",
+        "comment": "The amount of tax on this invoice. This is the sum of all the tax amounts on this invoice.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tax_percent",
+        "type": "double",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "total",
+        "type": "bigint",
+        "comment": "Total after discounts and taxes.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "webhooks_delivered_at",
+        "type": "timestamp",
+        "comment": "The time at which webhooks for this invoice were successfully delivered (if the invoice had no webhooks to deliver, this will match `created`). Invoice payment is delayed until webhooks are delivered, or until all webhook delivery attempts have been exhausted.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_coupon_id",
+        "type": "varchar",
+        "comment": "Hash describing the coupon applied to create this discount.",
+        "primary_key": false,
+        "foreign_key": "coupons",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_customer_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_end",
+        "type": "timestamp",
+        "comment": "If the coupon has a duration of `repeating`, the date that this discount will end. If the coupon has a duration of `once` or `forever`, this attribute will be null.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_start",
+        "type": "timestamp",
+        "comment": "Date that the coupon was applied.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_subscription",
+        "type": "varchar",
+        "comment": "The subscription that this coupon is applied to, if it is applied to a particular subscription.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status_transitions_finalized_at",
+        "type": "timestamp",
+        "comment": "The time that the invoice draft was finalized.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status_transitions_marked_uncollectible_at",
+        "type": "timestamp",
+        "comment": "The time that the invoice was marked uncollectible.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status_transitions_paid_at",
+        "type": "timestamp",
+        "comment": "The time that the invoice was paid.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status_transitions_voided_at",
+        "type": "timestamp",
+        "comment": "The time that the invoice was voided.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#invoices",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "invoices_metadata",
+    "comment": "Additional metadata fields associated with invoices.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "invoice_id",
+        "type": "varchar",
+        "comment": "The ID of the invoice that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "invoices",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#invoices",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "invoice_line_items",
+    "comment": "Subscription invoice items become invoice line items when they are charged to a customer.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "invoice_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "foreign_key": "invoices",
+        "visibility": "default"
+      },
+      {
+        "name": "source_id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "The amount, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "discountable",
+        "type": "boolean",
+        "comment": "If true, discounts will apply to this line item. Always false for prorations.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_id",
+        "type": "varchar",
+        "comment": "The plan of the subscription, if the line item is a subscription or a proration.",
+        "primary_key": false,
+        "foreign_key": "plans",
+        "visibility": "default"
+      },
+      {
+        "name": "proration",
+        "type": "boolean",
+        "comment": "Whether this is a proration.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "quantity",
+        "type": "bigint",
+        "comment": "The quantity of the subscription, if the line item is a subscription or a proration.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "subscription",
+        "type": "varchar",
+        "comment": "The subscription that the invoice item pertains to, if any.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "source_type",
+        "type": "varchar",
+        "comment": "A string identifying the type of the source of this line item, either an `invoiceitem` or a `subscription`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "period_start",
+        "type": "timestamp",
+        "comment": "Start of the line item's billing period",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "period_end",
+        "type": "timestamp",
+        "comment": "End of the line item's billing period",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#invoiceitems",
+    "visibility": "default"
+  },
+  {
+    "name": "invoice_items",
+    "comment": "Subscription invoice items allow you to add a charge or credit to a customer but only actually charge the customer's card at the end of a regular billing cycle.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount (in the `currency` specified) of the invoice item. This should always be equal to `unit_amount * quantity`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "The ID of the customer who will be billed when this invoice item is billed.",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "date",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "An arbitrary string attached to the object. Often useful for displaying to users.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "discountable",
+        "type": "boolean",
+        "comment": "If true, discounts will apply to this invoice item. Always false for prorations.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "invoice_id",
+        "type": "varchar",
+        "comment": "The ID of the invoice this invoice item belongs to.",
+        "primary_key": false,
+        "foreign_key": "invoices",
+        "visibility": "default"
+      },
+      {
+        "name": "plan_id",
+        "type": "varchar",
+        "comment": "If the invoice item is a proration, the plan of the subscription that the proration was computed for.",
+        "primary_key": false,
+        "foreign_key": "plans",
+        "visibility": "default"
+      },
+      {
+        "name": "proration",
+        "type": "boolean",
+        "comment": "Whether the invoice item was created automatically as a proration adjustment when the customer switched plans.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "quantity",
+        "type": "bigint",
+        "comment": "Quantity of units for the invoice item. If the invoice item is a proration, the quantity of the subscription that the proration was computed for.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "subscription_id",
+        "type": "varchar",
+        "comment": "The subscription that this invoice item has been created for, if any.",
+        "primary_key": false,
+        "foreign_key": "subscriptions",
+        "visibility": "default"
+      },
+      {
+        "name": "unit_amount",
+        "type": "bigint",
+        "comment": "Unit Amount (in the `currency` specified) of the invoice item.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "period_start",
+        "type": "timestamp",
+        "comment": "Start of the line item's billing period",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "period_end",
+        "type": "timestamp",
+        "comment": "End of the line item's billing period",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#invoiceitems",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "invoice_items_metadata",
+    "comment": "Additional metadata fields associated with invoice items.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "invoice_item_id",
+        "type": "varchar",
+        "comment": "The ID of the invoice_item that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "invoice_items",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#invoiceitems",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "transfers",
+    "comment": "A transfer object is created when you receive funds from Stripe or you initiate a transfer to either a bank account or debit card of a connected Stripe account.",
+    "section": "transfers",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount (in cents) to be transferred to your bank account.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "amount_reversed",
+        "type": "bigint",
+        "comment": "Amount in cents reversed (can be less than the amount attribute on the transfer if a partial reversal was issued).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "application_fee_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "application_fees",
+        "visibility": "default"
+      },
+      {
+        "name": "automatic",
+        "type": "boolean",
+        "comment": "Returns `true` if the payout was created by an [automated payout schedule](/docs/payouts#payout-schedule), and `false` if it was [requested manually](https://stripe.com/docs/payouts#manual-payouts).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "Balance transaction that describes the impact of this transfer on your account balance.",
+        "primary_key": false,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "date",
+        "type": "timestamp",
+        "comment": "Date the transfer is scheduled to arrive in the bank. This factors in delays like weekends or bank holidays.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "Internal-only description of the transfer.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "destination_id",
+        "type": "varchar",
+        "comment": "ID of the bank account, card, or Stripe account the transfer was sent to.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "destination_payment_id",
+        "type": "varchar",
+        "comment": "If the destination is a Stripe account, this will be the ID of the payment that the destination account received for the transfer.",
+        "primary_key": false,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "failure_code",
+        "type": "varchar",
+        "comment": "Error code explaining reason for transfer failure if available. See [Types of transfer failures](/docs/api#transfer_failures) for a list of failure codes.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "failure_message",
+        "type": "varchar",
+        "comment": "Message to user further explaining reason for transfer failure if available.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "reversed",
+        "type": "boolean",
+        "comment": "Whether the transfer has been fully reversed. If the transfer is only partially reversed, this attribute will still be false.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "source_transaction_id",
+        "type": "varchar",
+        "comment": "ID of the charge (or other transaction) that was used to fund the transfer. If null, the transfer was funded from the available balance.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "source_type",
+        "type": "varchar",
+        "comment": "The source balance this transfer came from. One of `card` or `bank_account`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "statement_descriptor",
+        "type": "varchar",
+        "comment": "Extra information about a transfer to be displayed on the user's bank statement.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "Current status of the transfer (`paid`, `pending`, `in_transit`, `canceled` or `failed`). A transfer will be `pending` until it is submitted to the bank, at which point it becomes `in_transit`. It will then change to `paid` if the transaction goes through. If it does not go through successfully, its status will change to `failed` or `canceled`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "transfer_group",
+        "type": "varchar",
+        "comment": "A string that identifies this transaction as part of a group. See the [Connect documentation](/docs/connect/charges-transfers#grouping-transactions) for details.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "Can be `card`, `bank_account`, or `stripe_account`.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#transfers",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "transfers_metadata",
+    "comment": "Additional metadata fields associated with transfers.",
+    "section": "transfers",
+    "columns": [
+      {
+        "name": "transfer_id",
+        "type": "varchar",
+        "comment": "The ID of the transfer that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "transfers",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#transfers",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "plans",
+    "comment": "A subscription plan contains the pricing information for different products and feature levels on your site.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "The amount in cents to be charged on the interval specified.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "interval",
+        "type": "varchar",
+        "comment": "One of `day`, `week`, `month` or `year`. The frequency with which a subscription should be billed.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "interval_count",
+        "type": "bigint",
+        "comment": "The number of intervals (specified in the `interval` property) between subscription billings. For example, `interval=month` and `interval_count=3` bills every 3 months.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "nickname",
+        "type": "varchar",
+        "comment": "A brief description of the plan, hidden from customers.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "product_id",
+        "type": "varchar",
+        "comment": "The product whose pricing this plan determines.",
+        "primary_key": false,
+        "foreign_key": "products",
+        "visibility": "default"
+      },
+      {
+        "name": "trial_period_days",
+        "type": "bigint",
+        "comment": "Default number of trial days when subscribing a customer to this plan using [`trial_from_plan=true`](/docs/api#create_subscription-trial_from_plan).",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#plans",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "plans_metadata",
+    "comment": "Additional metadata fields associated with plans.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "plan_id",
+        "type": "varchar",
+        "comment": "The ID of the plan that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "plans",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#plans",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "products",
+    "comment": "Products may be physical goods or services.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "comment": "Whether the product is currently available for purchase.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "caption",
+        "type": "varchar",
+        "comment": "A short one-line description of the product, meant to be displayable to the customer. Only applicable to products of `type=good`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "deactivate_on",
+        "type": "varchar",
+        "comment": "An array of connect application identifiers that cannot purchase this product. Only applicable to products of `type=good`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "description",
+        "type": "varchar",
+        "comment": "The product's description, meant to be displayable to the customer. Only applicable to products of `type=good`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "name",
+        "type": "varchar",
+        "comment": "The product's name, meant to be displayable to the customer. Applicable to both `service` and `good` types.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "shippable",
+        "type": "boolean",
+        "comment": "Whether this product is a shipped good. Only applicable to products of `type=good`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "statement_descriptor",
+        "type": "varchar",
+        "comment": "Extra information about a product which will appear on your customer's credit card statement. In the case that multiple products are billed at once, the first statement descriptor will be used. Only available on products of type=`service`.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "The type of the product. The product is either of type `good`, which is eligible for use with Orders and SKUs, or `service`, which is eligible for use with Subscriptions and Plans.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "unit_label",
+        "type": "varchar",
+        "comment": "A label that represents units of this product, such as seat(s), in Stripe and on customers’ receipts and invoices. Only available on products of type=`service`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "url",
+        "type": "varchar",
+        "comment": "A URL of a publicly-accessible webpage for this product. Only applicable to products of `type=good`.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#products",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "products_metadata",
+    "comment": "Additional metadata fields associated with products.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "product_id",
+        "type": "varchar",
+        "comment": "The ID of the product that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "products",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#products",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "refunds",
+    "comment": "Refund objects allow you to refund a charge that has previously been created but not yet refunded.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "Balance transaction that describes the impact on your account balance.",
+        "primary_key": false,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      },
+      {
+        "name": "charge_id",
+        "type": "varchar",
+        "comment": "ID of the charge that was refunded.",
+        "primary_key": false,
+        "foreign_key": "charges",
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "reason",
+        "type": "varchar",
+        "comment": "Reason for the refund. If set, possible values are `duplicate`, `fraudulent`, and `requested_by_customer`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "receipt_number",
+        "type": "varchar",
+        "comment": "This is the transaction number that appears on email receipts sent for this refund.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "Status of the refund. For credit card refunds, this can be `pending`, `succeeded`, or `failed`. For other types of refunds, it can be `pending`, `succeeded`, `failed`, or `canceled`. Refer to our [refunds](/docs/refunds#failed-refunds) documentation for more details.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "failure_reason",
+        "type": "varchar",
+        "comment": "If the refund failed, the reason for refund failure if known. Possible values are `lost_or_stolen_card`, `expired_or_canceled_card`, or `unknown`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "acquirer_reference_number",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#refunds",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "refunds_metadata",
+    "comment": "Additional metadata fields associated with refunds.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "refund_id",
+        "type": "varchar",
+        "comment": "The ID of the refund that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "refunds",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#refunds",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "sources",
+    "comment": "Source objects allow you to accept a variety of payment methods.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "A positive integer in the smallest currency unit (that is, 100 cents for $1.00, or 1 for ¥1, Japanese Yen being a zero-decimal currency) representing the total amount associated with the source. This is the amount for which the source will be chargeable once ready. Required for `single_use` sources.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "client_secret",
+        "type": "varchar",
+        "comment": "The client secret of the source. Used for client-side retrieval using a publishable key.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO code for the currency](https://stripe.com/docs/currencies) associated with the source. This is the currency for which the source will be chargeable once ready. Required for `single_use` sources.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "flow",
+        "type": "varchar",
+        "comment": "The authentication `flow` of the source. `flow` is one of `redirect`, `receiver`, `code_verification`, `none`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "The status of the source, one of `canceled`, `chargeable`, `consumed`, `failed`, or `pending`. Only `chargeable` sources can be used to create a charge.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "comment": "The `type` of the source. The `type` is a payment method, one of `ach_credit_transfer`, `ach_debit`, `alipay`, `bancontact`, `card`, `card_present`, `eps`, `giropay`, `ideal`, `multibanco`, `klarna`, `p24`, `sepa_debit`, `sofort`, `three_d_secure`, or `wechat`. An additional hash is included on the source with a name matching this value. It contains additional information specific to the [payment method](/docs/sources) used.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "usage",
+        "type": "varchar",
+        "comment": "Either `reusable` or `single_use`. Whether this source should be reusable or not. Some source types may or may not be reusable by construction, while others may leave the option at creation. If an incompatible value is passed, an error will be returned.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "code_verification_attempts_remaining",
+        "type": "bigint",
+        "comment": "The number of attempts remaining to authenticate the source object with a verification code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "code_verification_status",
+        "type": "varchar",
+        "comment": "The status of the code verification, either `pending` (awaiting verification, `attempts_remaining` should be greater than 0), `succeeded` (successful verification) or `failed` (failed verification, cannot be verified anymore as `attempts_remaining` should be 0).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "owner_email",
+        "type": "varchar",
+        "comment": "Owner's email address.",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_name",
+        "type": "varchar",
+        "comment": "Owner's full name.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_phone",
+        "type": "varchar",
+        "comment": "Owner's phone number (including extension).",
+        "primary_key": false,
+        "pii": "phone_number",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_email",
+        "type": "varchar",
+        "comment": "Verified owner's email address. Verified values are verified or provided by the payment method directly (and if supported) at the time of authorization or settlement. They cannot be set or mutated.",
+        "primary_key": false,
+        "pii": "email_address",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_name",
+        "type": "varchar",
+        "comment": "Verified owner's full name. Verified values are verified or provided by the payment method directly (and if supported) at the time of authorization or settlement. They cannot be set or mutated.",
+        "primary_key": false,
+        "pii": "name",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_phone",
+        "type": "varchar",
+        "comment": "Verified owner's phone number (including extension). Verified values are verified or provided by the payment method directly (and if supported) at the time of authorization or settlement. They cannot be set or mutated.",
+        "primary_key": false,
+        "pii": "phone_number",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_address_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "owner_address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_address_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_address_city",
+        "type": "varchar",
+        "comment": "City/District/Suburb/Town/Village.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_address_country",
+        "type": "varchar",
+        "comment": "2-letter country code.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_address_line1",
+        "type": "varchar",
+        "comment": "Address line 1 (Street address/PO Box/Company name).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_address_line2",
+        "type": "varchar",
+        "comment": "Address line 2 (Apartment/Suite/Unit/Building).",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_address_postal_code",
+        "type": "varchar",
+        "comment": "ZIP or postal code.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "owner_verified_address_state",
+        "type": "varchar",
+        "comment": "State/County/Province/Region.",
+        "primary_key": false,
+        "pii": "location",
+        "visibility": "default"
+      },
+      {
+        "name": "receiver_address",
+        "type": "varchar",
+        "comment": "The address of the receiver source. This is the value that should be communicated to the customer to send their funds to.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "receiver_amount_charged",
+        "type": "bigint",
+        "comment": "The total amount that was charged by you. The amount charged is expressed in the source's currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "receiver_amount_received",
+        "type": "bigint",
+        "comment": "The total amount received by the receiver source. `amount_received = amount_returned + amount_charged` is true at all time. The amount received is expressed in the source's currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "receiver_amount_returned",
+        "type": "bigint",
+        "comment": "The total amount that was returned to the customer. The amount returned is expressed in the source's currency.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "redirect_return_url",
+        "type": "varchar",
+        "comment": "The URL you provide to redirect the customer to after they authenticated their payment.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "redirect_status",
+        "type": "varchar",
+        "comment": "The status of the redirect, either `pending` (ready to be used by your customer to authenticate the transaction), `succeeded` (succesful authentication, cannot be reused) or `not_required` (redirect should not be used) or `failed` (failed authentication, cannot be reused).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "redirect_url",
+        "type": "varchar",
+        "comment": "The URL provided to you to redirect a customer to as part of a `redirect` authentication flow.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "redirect_failure_reason",
+        "type": "varchar",
+        "comment": "The failure reason for the redirect, either `user_abort` (the customer aborted or dropped out of the redirect flow), `declined` (the authentication failed or the transaction was declined), or `processing_error` (the redirect failed due to a technical error). Present only if the redirect status is `failed`.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#sources",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "sources_metadata",
+    "comment": "Additional metadata fields associated with sources.",
+    "section": "payments",
+    "columns": [
+      {
+        "name": "source_id",
+        "type": "varchar",
+        "comment": "The ID of the source that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "sources",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#sources",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "subscriptions",
+    "comment": "Subscriptions allow you to charge a customer's card on a recurring basis. A subscription ties a customer to a particular plan.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "application_fee_percent",
+        "type": "double",
+        "comment": "A non-negative decimal between 0 and 100, with at most two decimal places. This represents the percentage of the subscription invoice subtotal that will be transferred to the application owner's Stripe account.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "billing",
+        "type": "varchar",
+        "comment": "This field has been renamed to `collection_method` and will be removed in a future API version.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "billing_cycle_anchor",
+        "type": "timestamp",
+        "comment": "Determines the date of the first full invoice, and, for plans with `month` or `year` intervals, the day of the month for subsequent invoices.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "cancel_at_period_end",
+        "type": "boolean",
+        "comment": "If the subscription has been canceled with the `at_period_end` flag set to `true`, `cancel_at_period_end` on the subscription will be true. You can use this attribute to determine whether a subscription that has a status of active is scheduled to be canceled at the end of the current period.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "canceled_at",
+        "type": "timestamp",
+        "comment": "If the subscription has been canceled, the date of that cancellation. If the subscription was canceled with `cancel_at_period_end`, `canceled_at` will still reflect the date of the initial cancellation request, not the end of the subscription period when the subscription is automatically moved to a canceled state.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "current_period_end",
+        "type": "timestamp",
+        "comment": "End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "current_period_start",
+        "type": "timestamp",
+        "comment": "Start of the current period that the subscription has been invoiced for.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "customer_id",
+        "type": "varchar",
+        "comment": "ID of the customer who owns the subscription.",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "days_until_due",
+        "type": "bigint",
+        "comment": "Number of days a customer has to pay invoices generated by this subscription. This value will be `null` for subscriptions where `collection_method=charge_automatically`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "default_source_id",
+        "type": "varchar",
+        "comment": "ID of the default payment source for the subscription. It must belong to the customer associated with the subscription and be in a chargeable state. If not set, defaults to the customer's default source.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "ended_at",
+        "type": "timestamp",
+        "comment": "If the subscription has ended, the date the subscription ended.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_id",
+        "type": "varchar",
+        "comment": "Reference to the plan the customer is subscribed to. Only set if the subscription contains a single plan.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "quantity",
+        "type": "bigint",
+        "comment": "The quantity of the plan to which the customer is subscribed. For example, if your plan is $10/user/month, and your customer has 5 users, you could pass 5 as the quantity to have the customer charged $50 (5 x $10) monthly. Only set if the subscription contains a single plan.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "start",
+        "type": "timestamp",
+        "comment": "Date of the last substantial change to this subscription. For example, a change to the items array, or a change of status, will reset this timestamp.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "comment": "Possible values are `incomplete`, `incomplete_expired`, `trialing`, `active`, `past_due`, `canceled`, or `unpaid`. \n\nFor `collection_method=charge_automatically` a subscription moves into `incomplete` if the initial payment attempt fails. A subscription in this state can only have metadata and default_source updated. Once the first invoice is paid, the subscription moves into an `active` state. If the first invoice is not paid within 23 hours, the subscription transitions to `incomplete_expired`. This is a terminal state, the open invoice will be voided and no further invoices will be generated. \n\nA subscription that is currently in a trial period is `trialing` and moves to `active` when the trial period is over. \n\nIf subscription `collection_method=charge_automatically` it becomes `past_due` when payment to renew it fails and `canceled` or `unpaid` (depending on your subscriptions settings) when Stripe has exhausted all payment retry attempts. \n\nIf subscription `collection_method=send_invoice` it becomes `past_due` when its invoice is not paid by the due date, and `canceled` or `unpaid` if it is still not paid by an additional deadline after that. Note that when a subscription has a status of `unpaid`, no subsequent invoices will be attempted (invoices will be created, but then immediately automatically closed). After receiving updated payment information from a customer, you may choose to reopen and pay their closed invoices.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "tax_percent",
+        "type": "double",
+        "comment": "",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "trial_end",
+        "type": "timestamp",
+        "comment": "If the subscription has a trial, the end of that trial.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "trial_start",
+        "type": "timestamp",
+        "comment": "If the subscription has a trial, the beginning of that trial.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "billing_thresholds_amount_gte",
+        "type": "bigint",
+        "comment": "Monetary threshold that triggers the subscription to create an invoice",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "billing_thresholds_reset_billing_cycle_anchor",
+        "type": "boolean",
+        "comment": "Indicates if the `billing_cycle_anchor` should be reset when a threshold is reached. If true, `billing_cycle_anchor` will be updated to the date/time the threshold was last reached; otherwise, the value will remain unchanged. This value may not be `true` if the subscription contains items with plans that have `aggregate_usage=last_ever`.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_coupon_id",
+        "type": "varchar",
+        "comment": "Hash describing the coupon applied to create this discount.",
+        "primary_key": false,
+        "foreign_key": "coupons",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_customer_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": false,
+        "foreign_key": "customers",
+        "visibility": "default"
+      },
+      {
+        "name": "discount_end",
+        "type": "timestamp",
+        "comment": "If the coupon has a duration of `repeating`, the date that this discount will end. If the coupon has a duration of `once` or `forever`, this attribute will be null.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_start",
+        "type": "timestamp",
+        "comment": "Date that the coupon was applied.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "discount_subscription",
+        "type": "varchar",
+        "comment": "The subscription that this coupon is applied to, if it is applied to a particular subscription.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#subscriptions",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "subscriptions_metadata",
+    "comment": "Additional metadata fields associated with subscriptions.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "subscription_id",
+        "type": "varchar",
+        "comment": "The ID of the subscription that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "subscriptions",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#subscriptions",
+    "data_subjects": "END_USER",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "subscription_items",
+    "comment": "Subscription items allow you to create customer subscriptions with more than one plan, making it easy to represent complex billing relationships.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "subscription_id",
+        "type": "varchar",
+        "comment": "",
+        "primary_key": true,
+        "foreign_key": "subscriptions",
+        "visibility": "default"
+      },
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "bigint",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "subscription",
+        "type": "varchar",
+        "comment": "The `subscription` this `subscription_item` belongs to.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "quantity",
+        "type": "bigint",
+        "comment": "The [quantity](/docs/subscriptions/quantities) of the plan to which the customer should be subscribed.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_amount",
+        "type": "bigint",
+        "comment": "The amount in cents to be charged on the interval specified.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_interval",
+        "type": "varchar",
+        "comment": "One of `day`, `week`, `month` or `year`. The frequency with which a subscription should be billed.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_interval_count",
+        "type": "bigint",
+        "comment": "The number of intervals (specified in the `interval` property) between subscription billings. For example, `interval=month` and `interval_count=3` bills every 3 months.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_nickname",
+        "type": "varchar",
+        "comment": "A brief description of the plan, hidden from customers.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "plan_product_id",
+        "type": "varchar",
+        "comment": "The product whose pricing this plan determines.",
+        "primary_key": false,
+        "foreign_key": "products",
+        "visibility": "default"
+      },
+      {
+        "name": "plan_trial_period_days",
+        "type": "bigint",
+        "comment": "Default number of trial days when subscribing a customer to this plan using [`trial_from_plan=true`](/docs/api#create_subscription-trial_from_plan).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "billing_thresholds_usage_gte",
+        "type": "bigint",
+        "comment": "Usage threshold that triggers the subscription to create an invoice",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/subscription_items",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "tax_rates",
+    "comment": "Tax rates applied to invoices and subscriptions",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "active",
+        "type": "boolean",
+        "comment": "Defaults to `true`. When set to `false`, this tax rate cannot be applied to objects in the API, but will still be applied to subscriptions and invoices that already have it set.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "display_name",
+        "type": "varchar",
+        "comment": "The display name of the tax rates as it will appear to your customer on their receipt email, PDF, and the hosted invoice page.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "inclusive",
+        "type": "boolean",
+        "comment": "This specifies if the tax rate is inclusive or exclusive.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "jurisdiction",
+        "type": "varchar",
+        "comment": "The jurisdiction for the tax rate.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "percentage",
+        "type": "double",
+        "comment": "This represents the tax rate percent out of 100.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/tax_rates/create",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "tax_rates_metadata",
+    "comment": "Additional metadata fields associated with tax rates.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "tax_rate_id",
+        "type": "varchar",
+        "comment": "The ID of the tax_rate that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "tax_rates",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/tax_rates/create",
+    "data_subjects": "MERCHANT",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "transfer_reversals",
+    "comment": "A previously created transfer can be reversed if it has not yet been paid out. Funds and fees will be refunded to your available balance.",
+    "section": "transfers",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "amount",
+        "type": "bigint",
+        "comment": "Amount, in cents.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "balance_transaction_id",
+        "type": "varchar",
+        "comment": "Balance transaction that describes the impact on your account balance.",
+        "primary_key": false,
+        "foreign_key": "balance_transactions",
+        "visibility": "default"
+      },
+      {
+        "name": "created",
+        "type": "timestamp",
+        "comment": "Time at which the object was created. Measured in seconds since the Unix epoch.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "currency",
+        "type": "varchar",
+        "comment": "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in lowercase. Must be a [supported currency](https://stripe.com/docs/currencies).",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "transfer_id",
+        "type": "varchar",
+        "comment": "ID of the transfer that was reversed.",
+        "primary_key": false,
+        "foreign_key": "transfers",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#transfer_reversals",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "transfer_reversals_metadata",
+    "comment": "Additional metadata fields associated with transfer reversals.",
+    "section": "transfers",
+    "columns": [
+      {
+        "name": "transfer_reversal_id",
+        "type": "varchar",
+        "comment": "The ID of the transfer_reversal that this metadata entry is associated with.",
+        "primary_key": true,
+        "foreign_key": "transfer_reversals",
+        "visibility": "default"
+      },
+      {
+        "name": "key",
+        "type": "varchar",
+        "comment": "Name of the metadata key.",
+        "primary_key": true,
+        "pii": "freeform",
+        "visibility": "default"
+      },
+      {
+        "name": "value",
+        "type": "varchar",
+        "comment": "Value of the metadata.",
+        "primary_key": false,
+        "pii": "freeform",
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api#transfer_reversals",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  },
+  {
+    "name": "usage_records",
+    "comment": "Usage records allow you to report customer usage and metrics to Stripe for metered billing of subscription plans.",
+    "section": "billing",
+    "columns": [
+      {
+        "name": "id",
+        "type": "varchar",
+        "comment": "Unique identifier for the object.",
+        "primary_key": true,
+        "visibility": "default"
+      },
+      {
+        "name": "quantity",
+        "type": "bigint",
+        "comment": "The usage quantity for the specified date.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "timestamp",
+        "type": "timestamp",
+        "comment": "The timestamp when this usage occurred.",
+        "primary_key": false,
+        "visibility": "default"
+      },
+      {
+        "name": "subscription_item",
+        "type": "varchar",
+        "comment": "The ID of the subscription item this usage record contains data for.",
+        "primary_key": false,
+        "visibility": "default"
+      }
+    ],
+    "link": "https://stripe.com/docs/api/usage_records",
+    "data_subjects": "MERCHANTS",
+    "data_owner": "account",
+    "visibility": "default"
+  }
+]
