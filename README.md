@@ -2,6 +2,8 @@
 
 > For learning and inspiration, enjoy :+1:
 
+ [![Slack](https://img.shields.io/badge/Slack-Join%20our%20tech%20community-17202A?logo=slack)](https://join.slack.com/t/fgribreau/shared_invite/zt-edpjwt2t-Zh39mDUMNQ0QOr9qOj~jrg)
+
 * [accounts](#accounts)
 * [accounts_metadata](#accounts_metadata)
 * [external_account_bank_accounts](#external_account_bank_accounts)
